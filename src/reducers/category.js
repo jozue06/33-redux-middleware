@@ -7,10 +7,7 @@ export const ADD = 'Category/ADD';
 export const DELETE = 'Category/DELETE';
 
 // Reducer
-export default function reducer(state = defaultState, action) {
-
-  console.log({action});
-  
+export default function reducer(state = defaultState, action) {  
   const { type, payload } = action;
 
   switch (type) {
@@ -21,11 +18,9 @@ export default function reducer(state = defaultState, action) {
         categories: [...state.categories, payload]
       };
       case DELETE:
-      // console.log(state.categories)
       return {
         ...state,
         categories: state.categories.filter(category => {
-          console.log('payss', payload)
           return category.id !== payload.id})
       };
 
@@ -36,7 +31,6 @@ export default function reducer(state = defaultState, action) {
 
 // Action Creators
 export function addCategory(category) {
-  console.log('addCategory action', category);
   return {
     type: ADD,
     payload: category
